@@ -1,10 +1,3 @@
-:root {
-	--pf-global--link--Color: #06c;
-	--pf-global--link--Color--hover: #004080;
-	--pf-global--link--Color--visited: #40199a;
-	--pf-global--primary-color--100: #06c;
-	--pf-global--primary-color--200: #004080;
-  }
 
 
 .my-color {
@@ -25,6 +18,6 @@
 
 .btn-primary {
     background-color: #000!important;
-
+	background-image:none;
     color: #fff;
 }
