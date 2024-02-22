@@ -1,0 +1,26 @@
+import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
+import { clsx } from "../tools/clsx";
+import { usePrepareTemplate } from "../lib/usePrepareTemplate";
+import { useGetClassName } from "../account/lib/useGetClassName";
+import { assert } from "../tools/assert";
+export default function Template(props) {
+    const { kcContext, i18n, doUseDefaultCss, active, classes, children } = props;
+    const { getClassName } = useGetClassName({ doUseDefaultCss, classes });
+    const { msg, changeLocale, labelBySupportedLanguageTag, currentLanguageTag } = i18n;
+    const { locale, url, features, realm, message, referrer } = kcContext;
+    const { isReady } = usePrepareTemplate({
+        "doFetchDefaultThemeResources": doUseDefaultCss,
+        "styles": [
+            `${url.resourcesCommonPath}/node_modules/patternfly/dist/css/patternfly.min.css`,
+            `${url.resourcesCommonPath}/node_modules/patternfly/dist/css/patternfly-additions.min.css`,
+            `${url.resourcesPath}/css/account.css`
+        ],
+        "htmlClassName": getClassName("kcHtmlClass"),
+        "bodyClassName": clsx("admin-console", "user", getClassName("kcBodyClass"))
+    });
+    if (!isReady) {
+        return null;
+    }
+    return (_jsxs(_Fragment, { children: [_jsx("header", Object.assign({ className: "navbar navbar-default navbar-pf navbar-main header" }, { children: _jsxs("nav", Object.assign({ className: "navbar", role: "navigation" }, { children: [_jsx("div", Object.assign({ className: "navbar-header" }, { children: _jsx("div", Object.assign({ className: "container" }, { children: _jsx("h1", Object.assign({ className: "navbar-title" }, { children: "Keycloak" })) })) })), _jsx("div", Object.assign({ className: "navbar-collapse navbar-collapse-1" }, { children: _jsx("div", Object.assign({ className: "container" }, { children: _jsxs("ul", Object.assign({ className: "nav navbar-nav navbar-utility" }, { children: [realm.internationalizationEnabled && (assert(locale !== undefined), true) && locale.supported.length > 1 && (_jsx("li", { children: _jsxs("div", Object.assign({ className: "kc-dropdown", id: "kc-locale-dropdown" }, { children: [_jsx("a", Object.assign({ href: "#", id: "kc-current-locale-link" }, { children: labelBySupportedLanguageTag[currentLanguageTag] })), _jsx("ul", { children: locale.supported.map(({ languageTag }) => (_jsx("li", Object.assign({ className: "kc-dropdown-item" }, { children: _jsx("a", Object.assign({ href: "#", onClick: () => changeLocale(languageTag) }, { children: labelBySupportedLanguageTag[languageTag] })) }), languageTag))) })] })) })), (referrer === null || referrer === void 0 ? void 0 : referrer.url) && (_jsx("li", { children: _jsx("a", Object.assign({ href: referrer.url, id: "referrer" }, { children: msg("backTo", referrer.name) })) })), _jsx("li", { children: _jsx("a", Object.assign({ href: url.getLogoutUrl() }, { children: msg("doSignOut") })) })] })) })) }))] })) })), _jsxs("div", Object.assign({ className: "container" }, { children: [_jsx("div", Object.assign({ className: "bs-sidebar col-sm-3" }, { children: _jsxs("ul", { children: [_jsx("li", Object.assign({ className: clsx(active === "account" && "active") }, { children: _jsx("a", Object.assign({ href: url.accountUrl }, { children: msg("account") })) })), features.passwordUpdateSupported && (_jsx("li", Object.assign({ className: clsx(active === "password" && "active") }, { children: _jsx("a", Object.assign({ href: url.passwordUrl }, { children: msg("password") })) }))), _jsx("li", Object.assign({ className: clsx(active === "totp" && "active") }, { children: _jsx("a", Object.assign({ href: url.totpUrl }, { children: msg("authenticator") })) })), features.identityFederation && (_jsx("li", Object.assign({ className: clsx(active === "social" && "active") }, { children: _jsx("a", Object.assign({ href: url.socialUrl }, { children: msg("federatedIdentity") })) }))), _jsx("li", Object.assign({ className: clsx(active === "sessions" && "active") }, { children: _jsx("a", Object.assign({ href: url.sessionsUrl }, { children: msg("sessions") })) })), _jsx("li", Object.assign({ className: clsx(active === "applications" && "active") }, { children: _jsx("a", Object.assign({ href: url.applicationsUrl }, { children: msg("applications") })) })), features.log && (_jsx("li", Object.assign({ className: clsx(active === "log" && "active") }, { children: _jsx("a", Object.assign({ href: url.logUrl }, { children: msg("log") })) }))), realm.userManagedAccessAllowed && features.authorization && (_jsx("li", Object.assign({ className: clsx(active === "authorization" && "active") }, { children: _jsx("a", Object.assign({ href: url.resourceUrl }, { children: msg("myResources") })) })))] }) })), _jsxs("div", Object.assign({ className: "col-sm-9 content-area" }, { children: [message !== undefined && (_jsxs("div", Object.assign({ className: clsx("alert", `alert-${message.type}`) }, { children: [message.type === "success" && _jsx("span", { className: "pficon pficon-ok" }), message.type === "error" && _jsx("span", { className: "pficon pficon-error-circle-o" }), _jsx("span", Object.assign({ className: "kc-feedback-text" }, { children: message.summary }))] }))), children] }))] }))] }));
+}
+//# sourceMappingURL=Template.js.map
