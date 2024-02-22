@@ -1,5 +1,5 @@
-<#import "template.ftl" as layout>
-<@layout.registrationLayout displayMessage=!messagesPerField.existsError('username') displayInfo=(realm.password && realm.registrationAllowed && !registrationDisabled??); section>
+    <#import "template.ftl" as layout>
+    <@layout.registrationLayout; section>
     <#if section = "title">
      title
     <#elseif section = "header">
@@ -163,10 +163,6 @@
 
     </script>
     <#elseif section = "info">
-        <#if realm.password && realm.registrationAllowed && !registrationDisabled??>
-            <div id="kc-registration">
-                <span>${msg("noAccount")} <a tabindex="6" href="${url.registrationUrl}">${msg("doRegister")}</a></span>
-            </div>
-        </#if>
+
     </#if>
-</@layout.registrationLayout>
+    </@layout.registrationLayout>

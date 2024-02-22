@@ -1,6 +1,12 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout displayInfo=false; section>
     <#if section = "header" || section = "show-username">
+        <script type="text/javascript">
+            function fillAndSubmit(authExecId) {
+                document.getElementById('authexec-hidden-input').value = authExecId;
+                document.getElementById('kc-select-credential-form').submit();
+            }
+        </script>
         <#if section = "header">
             ${msg("loginChooseAuthenticator")}
         </#if>
@@ -9,7 +15,7 @@
         <form id="kc-select-credential-form" class="${properties.kcFormClass!}" action="${url.loginAction}" method="post">
             <div class="${properties.kcSelectAuthListClass!}">
                 <#list auth.authenticationSelections as authenticationSelection>
-                    <button class="${properties.kcSelectAuthListItemClass!}" type="submit" name="authenticationExecution" value="${authenticationSelection.authExecId}">
+                    <div class="${properties.kcSelectAuthListItemClass!}" onclick="fillAndSubmit('${authenticationSelection.authExecId}')">
 
                         <div class="${properties.kcSelectAuthListItemIconClass!}">
                             <i class="${properties['${authenticationSelection.iconCssClass}']!authenticationSelection.iconCssClass} ${properties.kcSelectAuthListItemIconPropertyClass!}"></i>
@@ -26,8 +32,9 @@
                         <div class="${properties.kcSelectAuthListItemArrowClass!}">
                             <i class="${properties.kcSelectAuthListItemArrowIconClass!}"></i>
                         </div>
-                    </button>
+                    </div>
                 </#list>
+                <input type="hidden" id="authexec-hidden-input" name="authenticationExecution" />
             </div>
         </form>
 

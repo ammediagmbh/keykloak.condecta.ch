@@ -3,31 +3,27 @@
 	
 	<#list profile.attributes as attribute>
 
-		<#assign group = (attribute.group)!"">
-		<#if group != currentGroup>
-			<#assign currentGroup=group>
-			<#if currentGroup != "">
-				<div class="${properties.kcFormGroupClass!}"
-				<#list group.html5DataAnnotations as key, value>
-					data-${key}="${value}"
-				</#list>
-				>
+		<#assign groupName = attribute.group!"">
+		<#if groupName != currentGroup>
+			<#assign currentGroup=groupName>
+			<#if currentGroup != "" >
+				<div class="${properties.kcFormGroupClass!}">
 	
-					<#assign groupDisplayHeader=group.displayHeader!"">
+					<#assign groupDisplayHeader=attribute.groupDisplayHeader!"">
 					<#if groupDisplayHeader != "">
-						<#assign groupHeaderText=advancedMsg(groupDisplayHeader)!group>
+						<#assign groupHeaderText=advancedMsg(attribute.groupDisplayHeader)!groupName>
 					<#else>
-						<#assign groupHeaderText=group.name!"">
+						<#assign groupHeaderText=groupName>
 					</#if>
 					<div class="${properties.kcContentWrapperClass!}">
-						<label id="header-${attribute.group.name}" class="${kcFormGroupHeader!}">${groupHeaderText}</label>
+						<label id="header-${groupName}" class="${kcFormGroupHeader!}">${groupHeaderText}</label>
 					</div>
 	
-					<#assign groupDisplayDescription=group.displayDescription!"">
+					<#assign groupDisplayDescription=attribute.groupDisplayDescription!"">
 					<#if groupDisplayDescription != "">
-						<#assign groupDescriptionText=advancedMsg(groupDisplayDescription)!"">
+						<#assign groupDescriptionText=advancedMsg(attribute.groupDisplayDescription)!"">
 						<div class="${properties.kcLabelWrapperClass!}">
-							<label id="description-${group.name}" class="${properties.kcLabelClass!}">${groupDescriptionText}</label>
+							<label id="description-${groupName}" class="${properties.kcLabelClass!}">${groupDescriptionText}</label>
 						</div>
 					</#if>
 				</div>
@@ -57,10 +53,6 @@
 		</div>
 		<#nested "afterField" attribute>
 	</#list>
-
-	<#list profile.html5DataAnnotations?keys as key>
-		<script type="module" src="${url.resourcesPath}/js/${key}.js"></script>
-	</#list>
 </#macro>
 
 <#macro inputFieldByType attribute>
@@ -77,18 +69,12 @@
 		<@inputTagSelects attribute=attribute/>
 		<#break>
 	<#default>
-		<#if attribute.multivalued && attribute.values?has_content>
-			<#list attribute.values as value>
-				<@inputTag attribute=attribute value=value!''/>
-			</#list>
-		<#else>
-			<@inputTag attribute=attribute value=attribute.value!''/>
-		</#if>
+		<@inputTag attribute=attribute/>
 	</#switch>
 </#macro>
 
-<#macro inputTag attribute value>
-	<input type="<@inputTagType attribute=attribute/>" id="${attribute.name}" name="${attribute.name}" value="${(value!'')}" class="${properties.kcInputClass!}"
+<#macro inputTag attribute>
+	<input type="<@inputTagType attribute=attribute/>" id="${attribute.name}" name="${attribute.name}" value="${(attribute.value!'')}" class="${properties.kcInputClass!}"
 		aria-invalid="<#if messagesPerField.existsError('${attribute.name}')>true</#if>"
 		<#if attribute.readOnly>disabled</#if>
 		<#if attribute.autocomplete??>autocomplete="${attribute.autocomplete}"</#if>
@@ -100,10 +86,6 @@
 		<#if attribute.annotations.inputTypeMax??>max="${attribute.annotations.inputTypeMax}"</#if>
 		<#if attribute.annotations.inputTypeMin??>min="${attribute.annotations.inputTypeMin}"</#if>
 		<#if attribute.annotations.inputTypeStep??>step="${attribute.annotations.inputTypeStep}"</#if>
-		<#if attribute.annotations.inputTypeStep??>step="${attribute.annotations.inputTypeStep}"</#if>
-		<#list attribute.html5DataAnnotations as key, value>
-    		data-${key}="${value}"
-		</#list>
 	/>
 </#macro>
 
