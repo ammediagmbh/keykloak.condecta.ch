@@ -25,6 +25,14 @@
                 "admin",
                 "login"
             ]
+        },
+        {
+            "name": "keycloak.condecta",
+            "types": [
+                "account",
+                "admin",
+                "login"
+            ]
         }
     ]
 }
