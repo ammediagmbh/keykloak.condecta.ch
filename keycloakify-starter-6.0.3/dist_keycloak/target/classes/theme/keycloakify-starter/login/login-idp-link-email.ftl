@@ -708,12 +708,6 @@
         <script src="${script}" type="text/javascript"></script>
     </#list>
 </#if>
-<style>
-:root {
-    --url9b80ef91c25399f: url(${url.resourcesPath}/build/assets/background-CpctmY33.svg);
-}
-</style>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -779,7 +773,7 @@
     
     
 
-    <script type="module" crossorigin="" src="${url.resourcesPath}/build/assets/index-CbRHuHWR.js"></script>
+    <script type="module" crossorigin="" src="${url.resourcesPath}/build/assets/index-PCTXMqwh.js"></script>
   </head>
 
   <body>
