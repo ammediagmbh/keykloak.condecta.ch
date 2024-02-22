@@ -14,7 +14,6 @@
 
     <properties>
         <dir.common>src/main/resources/theme/keycloak/common/resources</dir.common>
-        <dir.account2>src/main/resources/theme/keycloak.v2/account/src</dir.account2>
         <!-- ignore folders for incremental builds by the maven build cache plugin -->
         <maven.build.cache.exclude.1>${project.basedir}/src/main/resources/theme/keycloak/common/resources/node_modules</maven.build.cache.exclude.1>
         <maven.build.cache.exclude.2>${project.basedir}/src/main/resources/theme/keycloak.v2/account/src/node_modules</maven.build.cache.exclude.2>
@@ -112,60 +111,6 @@
             </build>
         </profile>
 
-        <profile>
-            <id>account2</id>
-            <activation>
-                <property>
-                    <name>!skipAccount2</name>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-clean-plugin</artifactId>
-                        <configuration>
-                            <filesets>
-                                <fileset>
-                                    <directory>${dir.account2}/web_modules</directory>
-                                </fileset>
-                            </filesets>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>com.github.eirslett</groupId>
-                        <artifactId>frontend-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>install-node-and-pnpm-account2</id>
-                                <goals>
-                                    <goal>install-node-and-pnpm</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>pnpm-install-account2</id>
-                                <goals>
-                                    <goal>pnpm</goal>
-                                </goals>
-                                <configuration>
-                                    <arguments>${pnpm.args.install}</arguments>
-                                    <workingDirectory>${dir.account2}</workingDirectory>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>run-build-account2</id>
-                                <goals>
-                                    <goal>pnpm</goal>
-                                </goals>
-                                <configuration>
-                                    <arguments>run build</arguments>
-                                    <workingDirectory>${dir.account2}</workingDirectory>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
 
         <profile>
             <id>common</id>
