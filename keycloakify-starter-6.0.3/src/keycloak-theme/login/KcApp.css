@@ -1,4 +1,10 @@
-
+:root {
+	--pf-global--link--Color: #06c;
+	--pf-global--link--Color--hover: #004080;
+	--pf-global--link--Color--visited: #40199a;
+	--pf-global--primary-color--100: #06c;
+	--pf-global--primary-color--200: #004080;
+  }
 
 
 .my-color {
@@ -15,4 +21,12 @@
 
 .my-root-class body {
 	background: #243783;
+}
+
+btn-primary {
+    background-color: #0088ce;
+    background-image: linear-gradient(to bottom,#39a5dc 0,#0088ce 100%);
+    background-repeat: repeat-x;
+    border-color: #00659c;
+    color: #fff;
 }
