@@ -27,7 +27,7 @@
             ]
         },
         {
-            "name": "keycloak.condecta",
+            "name": "keycloak-condecta",
             "types": [
                 "account",
                 "admin",
