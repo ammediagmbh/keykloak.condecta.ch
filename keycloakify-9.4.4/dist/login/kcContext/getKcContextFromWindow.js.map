@@ -1,1 +1,0 @@
-{"version":3,"file":"getKcContextFromWindow.js","sourceRoot":"","sources":["../../../src/login/kcContext/getKcContextFromWindow.ts"],"names":[],"mappings":"AAEA,OAAO,EAAE,eAAe,EAAE,MAAM,2BAA2B,CAAC;AAM5D,MAAM,UAAU,sBAAsB;IAClC,OAAO,OAAO,MAAM,KAAK,WAAW,CAAC,CAAC,CAAC,SAAS,CAAC,CAAC,CAAE,MAAc,CAAC,eAAe,CAAC,CAAC;AACxF,CAAC"}
