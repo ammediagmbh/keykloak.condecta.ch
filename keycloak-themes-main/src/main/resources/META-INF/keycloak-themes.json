@@ -1,0 +1,16 @@
+{
+  "themes": [
+    {
+      "name": "attributes",
+      "types": [
+        "login"
+      ]
+    },
+    {
+      "name": "mustache",
+      "types": [
+        "email"
+      ]
+    }
+  ]
+}
