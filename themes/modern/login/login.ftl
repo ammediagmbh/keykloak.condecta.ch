@@ -1,7 +1,7 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout displayInfo=social.displayInfo displayWide=(realm.password && social.providers??); section>
 <#if section = "header">
-    <h1><img class="${properties.kcHeaderLogoClass!}" src="${url.resourcesPath}/img/logo.png"></h1>
+    <h1><img class="${properties.kcHeaderLogoClass!}" src="https://www.condecta.ch/themes/condecta_website/images/condecta-logo-slogan-de.svg"></h1>
     <h4>${msg("doLogIn")}</h4>
     <p>${msg("enterCredentialsToLogin")}</p>
 <#elseif section = "form">
