@@ -1,3 +1,4 @@
 web_modules
 vendor
 node
+node/*
