@@ -64,7 +64,7 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
                         When possible don't use this approach, instead ...
                     */}
                     {/* ...rely on the bundler to import your assets, it's more efficient */}
-                    <img src={'https://www.condecta.ch/themes/condecta_website/images/condecta-logo-slogan-de.svg'} alt="Keycloakify logo" width={200} />
+                    <img src={'https://www.condecta.ch/themes/condecta_website/images/condecta-logo-slogan-de.svg'} alt="Keycloakify logo" width={300} />
                 </div>
             </div>
 
