@@ -63,9 +63,8 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
                         Here we are referencing the `keycloakify-logo.png` in the `public` directory.  
                         When possible don't use this approach, instead ...
                     */}
-                    <img src={`${import.meta.env.BASE_URL}keycloakify-logo.png`} alt="Keycloakify logo" width={50} />
                     {/* ...rely on the bundler to import your assets, it's more efficient */}
-                    <img src={'https://www.condecta.ch/themes/condecta_website/images/condecta-logo-slogan-de.svg'} alt="Keycloakify logo" width={50} />
+                    <img src={'https://www.condecta.ch/themes/condecta_website/images/condecta-logo-slogan-de.svg'} alt="Keycloakify logo" width={200} />
                 </div>
             </div>
 
