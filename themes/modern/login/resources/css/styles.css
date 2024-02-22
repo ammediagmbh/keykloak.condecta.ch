@@ -1,7 +1,8 @@
 @import "variables.css"; /* Using a string */
 
 body {
-    background-color: var(--bs-primary);
+    background-color: var(--bs-primary)!important;
+    color: var(--bs-white)!important;
 }
 
 
