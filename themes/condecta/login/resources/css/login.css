@@ -11,10 +11,10 @@
 
 #kc-header-wrapper {
     color: transparent;
-    background-image: ('../img/condecta-logo-slogan-de.svg');
+    background-image: url('../img/condecta-logo-slogan-de.svg');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 200px 70px;
+    background-size: 200px;
 
 }
 
