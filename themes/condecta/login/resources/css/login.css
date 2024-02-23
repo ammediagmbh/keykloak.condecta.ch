@@ -9,7 +9,7 @@
 }
 
 .login-pf body {
-    background: url("../img/keycloak-bg.png") no-repeat center center fixed;
+    background-color: var(--bs-primary);
     background-size: cover;
     height: 100%;
 }
