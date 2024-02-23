@@ -4,6 +4,10 @@
 
 @import "variables.css"; /* Using a string */
 
+.login-pf-page {
+    background-color: var(--bs-primary);
+}
+
 .login-pf {
     background: none;
 }
