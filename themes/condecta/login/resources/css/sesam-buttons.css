@@ -49,6 +49,11 @@ width: auto;
 }
 
 
+
+body #social-swissid::after {
+  display: none;
+}
+
 body #social-swissid::before {
   content: " ";
   display: block;
@@ -64,7 +69,6 @@ body #social-swissid::before {
 body #social-swissid {
     color: #ffffff;
     background-color: #eb0000;
-    font-weight: bold;
 }
 body #social-swissid {
   border-radius: 25px; /* MUST be half of button height */
