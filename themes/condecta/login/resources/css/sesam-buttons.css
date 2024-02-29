@@ -31,7 +31,7 @@ button, input, optgroup, select, textarea {
 body #social-swissid {
     font-family: 'SwissSignCircularWeb', sans-serif;
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 700!important;
     border: none;
     border-radius: 2px!important;
     padding: 1px 0 0;
