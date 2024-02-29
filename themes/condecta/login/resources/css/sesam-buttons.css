@@ -28,7 +28,7 @@ button, input, optgroup, select, textarea {
     font: inherit;
     color: inherit;
 }
-#social-swissid {
+body #social-swissid {
     font-family: 'SwissSignCircularWeb', sans-serif;
     font-size: 18px;
     font-weight: 700;
@@ -37,17 +37,17 @@ button, input, optgroup, select, textarea {
     padding: 1px 0 0;
     text-decoration: none;
 }
-#social-swissid {
+body #social-swissid {
     color: #ffffff;
     background-color: #eb0000;
     font-weight: bold;
 }
-#social-swissid {
+body #social-swissid {
   border-radius: 25px; /* MUST be half of button height */
   padding-left: 70px;
   padding-right: 30px;
 }
-#social-swissid span {
+body #social-swissid span {
   left: 5px;
 }
 
